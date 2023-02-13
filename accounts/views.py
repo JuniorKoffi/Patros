@@ -9,18 +9,21 @@ from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
-from . tokens import generateToken
+from .tokens import generateToken
+
+
 # Create your views here.
 
-####### Fonction de recuperation et de traitement des données en cas de post ###############
+
+
 def Register(request):
     if request.method == "POST":
-        username = request.POST.get('username')
-        firstname = request.POST.get('firstname')
-        lastname = request.POST.get('lastname')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        repassword = request.POST.get('repassword')
+        username = request.POST['username']
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        email = request.POST['email']
+        password = request.POST['password']
+        repassword = request.POST['repassword']
         if User.objects.filter(username=username):
             messages.error(request, 'username already taken please try another.')
             return redirect('register')
@@ -39,7 +42,7 @@ def Register(request):
 
         if password != repassword:
             messages.error(request, 'The password did not match! ')
-            return redirect('register')
+            return redirect('signup')
 
         my_user = User.objects.create_user(username, email, password)
         my_user.first_name = firstname
@@ -58,8 +61,8 @@ def Register(request):
 
         # send the the confirmation email
         current_site = get_current_site(request)
-        email_suject = "confirm your email DarkAvengers Django Login!"
-        messageConfirm = render_to_string("account_activation_email.html", {
+        email_suject = "confirm your email DonaldPro Django Login!"
+        messageConfirm = render_to_string("emailConfimation.html", {
             'name': my_user.first_name,
             'domain': current_site.domain,
             'uid': urlsafe_base64_encode(force_bytes(my_user.pk)),
@@ -76,10 +79,9 @@ def Register(request):
         email.fail_silently = False
         email.send()
         return redirect('login')
-    return render(request, "register.html")
+    return render(request, 'register.html')
 
 
-###### connexion de l'utilisateur
 def Login(request):
     if request.method == "POST":
         username = request.POST['username']
@@ -97,17 +99,16 @@ def Login(request):
         else:
             messages.error(request, 'bad authentification')
             return redirect('home')
-    return render(request, "login.html")
+
+    return render(request, 'login.html')
 
 
-##### déconnexion
 def Logout(request):
     logout(request)
     messages.success(request, 'logout successfully!')
     return redirect('home')
 
 
-##### activation du mail
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))

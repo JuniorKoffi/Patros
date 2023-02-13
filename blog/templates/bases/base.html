@@ -21,23 +21,20 @@
 
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="{% static 'bootstrap/bootstrap.css' %}">
-	<link rel="stylesheet" href="{% static 'css/misc.css' %}">
-	<link rel="stylesheet" href="{% static 'css/red-scheme.css' %}">
+	<link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="{% static 'css2/misc.css' %}">
+	<link rel="stylesheet" href="{% static 'css2/red-scheme.css' %}">
 	
 	<!-- JavaScripts -->
-	<script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
-	<script src="{% static 'js/jquery-migrate-1.2.1.min.js' %}"></script>
-
-	<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+	<script src="{% static 'js2/jquery-1.10.2.min.js' %}"></script>
+	<script src="{% static 'js2/jquery-migrate-1.2.1.min.js' %}"></script>
 
 </head>
 <body>
 	<div class="responsive_menu">
         <ul class="main_menu">
-            <li><a href="{% url 'index' %}">Home</a></li>
-            <li><a href="{% url 'about' %}">Portfolio</a></li>
+            <li><a href="{% url 'Home' %}">Home</a></li>
             <li><a href="{% url 'blog' %}">Blog</a></li>
-            <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul> <!-- /.main_menu -->
     </div> <!-- /.responsive_menu -->
 	<header class="site-header clearfix">
@@ -48,23 +45,22 @@
 				<div class="col-md-12">
 
 					<div class="pull-left logo">
-						<a href="{% url 'index' %}">
-							<img src="{% static 'images/logo.png' %}" alt="Medigo by templatemo">
+						<a href="{% url 'Home' %}">
+							<img src="{% static 'images/logo.png' %}">
 						</a>
 					</div>	<!-- /.logo -->
 
-					<div class="main-navigation pull-right">
-
-						<nav class="main-nav visible-md visible-lg">
-							<ul class="sf-menu">
-								<li class="active"><a href="{% url 'index' %}">Home</a></li>
-					            <li><a href="{% url 'about' %}">Portfolio</a>
-					            </li>
-					            <li><a href="{% url 'blog' %}">Blog</a>
-					            </li>
-					            <li><a href="{% url 'contact' %}">Contact</a></li>
-							</ul> <!-- /.sf-menu -->
-						</nav> <!-- /.main-nav -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right custom-menu">
+						<li class="active"><a href="{% url 'Home' %}">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#services">Services</a></li>
+						<li><a href="#meet-team">Team</a></li>
+						<li><a href="#portfolio1">Portofolio</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li><a href="{% url 'blog' %}">Blog</a></li>
+						<li><a href="{% url 'accounts:login' %}">Login</a></li>
+						<li><a href="#">Logout</a></li>
 
     {% block content %}
 
@@ -76,10 +72,8 @@
 				<div class="col-md-12">
 					<nav class="footer-nav clearfix">
 						<ul class="footer-menu">
-							<li><a href="{% url 'index' %}">Home</a></li>
-                            <li><a href="{% url 'about' %}">Portfolio</a></li>
+							<li><a href="{% url 'Home' %}">Home</a></li>
                             <li><a href="{% url 'blog' %}">Blog</a></li>
-                            <li><a href="{% url 'contact' %}">Contact</a></li>
 						</ul> <!-- /.footer-menu -->
 					</nav> <!-- /.footer-nav -->
 				</div> <!-- /.col-md-12 -->
@@ -93,8 +87,8 @@
 	</footer> <!-- /.site-footer -->
 
 	<!-- Scripts -->
-	<script src="{% static 'js/min/plugins.min.js' %}"></script>
-	<script src="{% static 'js/min/medigo-custom.min.js' %}"></script>
+	<script src="{% static 'js2/min/plugins.min.js' %}"></script>
+	<script src="{% static 'js2/min/medigo-custom.min.js' %}"></script>
     {% block scripts %}
     
     {% endblock scripts %}

@@ -1,15 +1,48 @@
 from django.shortcuts import render, redirect
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 from .models import Categorie, Tag, Author, \
      Article, Commentaire, Avis
+from rest_framework import generics
+from .models import Article
+from .serializers import ArticleSerializer
+
 
 
 # Create your views here.
-def index(request):
-    datas = {
+@api_view(['GET'])
+def allArticles(request):
+    articles = Article.objects.all()
+    serialisation = ArticleSerializer(articles, many= True)
+    return Response(serialisation.data)
 
-    }
-    return render(request, 'pages/index.html', datas)
+@api_view(['GET'])
+def getArticle(request,id):
+    article = Article.object.get(id=id)
+    serialisation = ArticleSerializer(article)
+    return Response(serialisation.data)
 
+@api_view(['GET'])
+def getArticle(request, id):
+    article = Article.objects.get(id=id)
+    serializer = ArticleSerializer(article)
+    return Response(serializer.data)
+#--------------------------------
+@api_view(['POST'])
+def addArticle(request):
+    serializer = ArticleSerializer(data = request.data, many= True)
+    if serializer.is_valid:
+        serializer.save()
+    return Response(serializer.data)
+#--------------------------------
+@api_view(['PUT'])
+def updateArticle(request, id):
+    article = Article.objects.get(id=id)
+    serializer = ArticleSerializer(instance= article, data = request.data, many= True)
+    if serializer.is_valid:
+        serializer.save()
+    return Response(serializer.data)
 
 def blog(request):
     articles = Article.objects.filter(status=True)
@@ -19,18 +52,6 @@ def blog(request):
     return render(request, 'pages/blog.html', datas)
 
 
-def contact(request):
-    datas = {
-
-    }
-    return render(request, 'pages/contact.html', datas)
-
-
-def about(request):
-    datas = {
-
-    }
-    return render(request, 'pages/portfolio.html', datas)
 
 
 def blog_details(request, pk):
