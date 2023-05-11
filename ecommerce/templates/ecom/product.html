@@ -1,0 +1,184 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>Tale SEO Agency - Formations Page</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="The Plaza eCommerce Template">
+	<meta name="keywords" content="plaza, eCommerce, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="{% static 'zifty/img/favicon.ico' %}" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="{% static 'zifty/css/bootstrap.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'zifty/css/font-awesome.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'zifty/css/owl.carousel.css' %}"/>
+	<link rel="stylesheet" href="{% static 'zifty/css/style.css' %}"/>
+	<link rel="stylesheet" href="{% static 'zifty/css/animate.css' %}"/>
+
+	<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-tale-seo-agency.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+	
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{% url 'app:index' %}" class="logo">
+                        <img src="{% static 'assets/images/logo.png' %}" alt="" style="max-width: 112px;">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="{% url 'app:index' %}#top">Home</a></li>
+                      <li><a href="{% url 'app:index' %}#services">Services</a></li>
+                      <li><a href="{% url 'app:index' %}#projects">Projects</a></li>
+                      <li class="has-sub">
+                          <a href="javascript:void(0)">Pages</a>
+                          <ul class="sub-menu">
+                              <li><a href="{% url 'app:about' %}">About Us</a></li>
+                              <li><a href="{% url 'app:faqs' %}">FAQs</a></li>
+                              <li><a href="{% url 'blog:blog' %}">Blog</a></li>
+                              <li><a href="{% url 'ecommerce:indexz' %}">Formations</a></li>
+                          </ul>
+                      </li>
+                      <li class="scroll-to-section"><a href="{% url 'app:index' %}#infos">Infos</a></li>
+                      <li class="scroll-to-section"><a href="{% url 'app:index' %}#contact">Contact</a></li>
+                      <li class="has-sub">
+                        {% if user.is_authenticated %}
+                          <a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a>
+                          <ul class="sub-menu">
+                            <p>{{ user.username }}</p>
+                            <li><a href="{% url 'authentification:signout' %}">Logout</a></li>
+                            <li><a href="{% url 'authentification:password_reset' %}">Modify password</a></li>
+                          </ul>
+                        {% else %}
+                            <a href="javascript:void(0)"><i class="fa fa-user-times" aria-hidden="true"></i></a>
+                            <ul class="sub-menu">
+                              <li><a href="{% url 'authentification:signin' %}">Login</a></li>
+                              <li><a href="{% url 'authentification:signup' %}">Sign up </a></li>
+                            </ul>
+                        {% endif %}
+                      </li>
+						<li><a href="{% url 'ecommerce:cart' %}" class="card-bag"><img src="{% static 'zifty/img/icons/bag.png' %}" alt=""></a></li>
+                  </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+	<!-- Page Info -->
+	<div class="page-info-section page-info">
+		<div class="container">
+			<div class="site-breadcrumb">
+			</div>
+		</div>
+	</div>
+	<!-- Page Info end -->
+
+	<!-- Page -->
+	<div class="page-area product-page spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<figure>
+						<img class="product-big-img" src="{{article.image1.url}}" alt="">
+					</figure>
+					<div class="product-thumbs">
+						<div class="product-thumbs-track">
+							<div class="pt" data-imgbigurl="{{article.image1.url}}"><img src="{{article.image1.url}}" alt=""></div>
+							<div class="pt" data-imgbigurl="{{article.image2.url}}"><img src="{{article.image2.url}}" alt=""></div>
+							<div class="pt" data-imgbigurl="{{article.image3.url}}"><img src="{{article.image3.url}}" alt=""></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="product-content">
+						<h2>{{article.name}}</h2>
+						<div class="pc-meta">
+							<h4 class="price">{{article.prix}}$</h4>
+						</div>
+						<p>{{article.description}}</p>
+						<a href="#" class="site-btn btn-line">ADD TO CART</a>
+					</div>
+				</div>
+			</div>
+			<div class="product-details">
+			</div>
+		</div>
+	</div> 
+	<!-- Page end -->
+
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © 2036 <a href="#">Tale SEO Agency</a>. All rights reserved.
+
+        <br>Design: <a href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="{% static 'zifty/js/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'zifty/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'zifty/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'zifty/js/mixitup.min.js' %}"></script>
+	<script src="{% static 'zifty/js/sly.min.js' %}"></script>
+	<script src="{% static 'zifty/js/jquery.nicescroll.min.js' %}"></script>
+	<script src="{% static 'zifty/js/main.js' %}"></script>
+
+
+
+
+  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.j' %}s"></script>
+  <script src="{% static 'assets/js/tabs.js' %}"></script>
+  <script src="{% static 'assets/js/popup.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+    </body>
+</html>

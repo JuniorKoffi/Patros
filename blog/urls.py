@@ -1,4 +1,4 @@
-"""mysite URL Configuration
+"""Myblog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -14,10 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from django.conf.urls.static import static
-from django.conf import settings
-
-from . import views
+from .views import index, contact, blog, \
+    blog_details, about, avis
 urlpatterns = [
-    path('', views.Blog, name='blog'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('', index, name='index'),
+    path('contact', contact, name='contact'),
+    path('blog', blog, name='blog'),
+    path('blog/<int:pk>/details', blog_details, name='blog_detail'),
+    path('blog/<int:pk>/avis/<str:choice>', avis, name='avis'),
+    path('about', about, name='about'),
+]

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'sora.apps.SoraConfig',
     'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
+    'ecommerce.apps.EcommerceConfig',
 
 ]
 
