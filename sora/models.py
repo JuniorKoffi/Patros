@@ -20,7 +20,7 @@ class Lblog(models.Model):
     contenus = models.TextField()
 
     def __str__(self):
-        return self.image
+        return self.image.name
 
 class Team(models.Model):
     nom = models.CharField(max_length= 150)
@@ -31,10 +31,10 @@ class Team(models.Model):
         return self.nom
 
 class Portfolio(models.Model):
-    image = models.ImageField()
+    images = models.ImageField()
 
     def __str__(self):
-        return self.image
+        return self.images.name
 
 class Localisation(models.Model):
     localisation = models.CharField(max_length= 150)

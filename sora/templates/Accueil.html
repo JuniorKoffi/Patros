@@ -117,6 +117,7 @@
 		</header>
 			
 		<!-- Page Content -->
+		{% for about in about %}
 		<section id="about">
 			<div class="container">
 				<div class="row">
@@ -127,7 +128,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<p>
-									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley. It has survived not only five centuries, but also the leap into electronic typesetting, remaining <span class="color-elements">essentially unchanged.</span>
+										{{ about.contenus }}
 									</p>
 								</div>
 							</div>
@@ -136,6 +137,8 @@
 				</div>
 			</div>
 		</section>
+		{% endfor %}
+
 
 		<section id="services">
 			<div class="orangeback">
@@ -143,6 +146,7 @@
 					<div class="text-center homeport2"><h2>Services</h2></div>
 					<div class="row">
 						<div class="col-md-12 homeservices1">
+							{% for service in services %}
 							<div class="col-md-3 portfolio-item">
 								<div class="text-center">
 									<a href="javascript:void(0);">
@@ -151,51 +155,16 @@
 									  <i class="fa fa-line-chart fa-stack-1x"></i>
 									</span>
 									</a>
-									<h3><a href="#">Strategy</a></h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+									<h3><a href="#">{{ service.titre }}</a></h3>
+									<p>{{ service.contenus }}</p>
 								</div>
 							</div>
-							<div class="col-md-3 portfolio-item">
-								<div class="text-center">
-									<a href="javascript:void(0);">
-									<span class="fa-stack fa-lg">
-									  <i class="fa fa-circle fa-stack-2x"></i>
-									  <i class="fa fa-users fa-stack-1x"></i>
-									</span>
-									</a>
-									<h3><a href="#">User Friendly</a></h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								</div>
-							</div>
-							<div class="col-md-3 portfolio-item">
-								<div class="text-center">
-									<a href="javascript:void(0);">
-									<span class="fa-stack fa-lg">
-									  <i class="fa fa-circle fa-stack-2x"></i>
-									  <i class="fa fa-code fa-stack-1x"></i>
-									</span>
-									</a>
-									<h3><a href="#">Clean Code</a></h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								</div>
-							</div>
-							<div class="col-md-3 portfolio-item">
-								<div class="text-center">
-									<a href="javascript:void(0);">
-									<span class="fa-stack fa-lg">
-									  <i class="fa fa-circle fa-stack-2x"></i>
-									  <i class="fa fa-cogs fa-stack-1x"></i>
-									</span>
-									</a>
-									<h3><a href="#">Flexibility</a></h3>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-								</div>
-							</div>
-						</div>
+							{% endfor %}
 					</div>
 				</div>
 			</div>
 		</section>
+
 
 		<section id="bloghome">
 			<div class="container">
@@ -204,39 +173,18 @@
 				</div>
 				<div class="row">
 					<div class="col-md-12 homeport1">
+						{% for lblog in lblogs %}
 						<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
 							<figure class="effect-oscar">
-								<img src="{% static 'images/blog1.jpg' %}" alt="img09" class="img-responsive" />
+								<img src="{{ lblog.image }}" alt="img09" class="img-responsive" />
 								<figcaption>
-									<h2>Blog Post Long Title</h2>
 									<a href="#">View more</a>
 								</figcaption>           
 							</figure>
 							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
 							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
 						</div>
-						<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
-							<figure class="effect-oscar">
-								<img src="{% static 'images/blog2.jpg' %}" alt="img09" class="img-responsive"/>
-								<figcaption>
-									<h2>Blog Post Long Title</h2>
-									<a href="#">View more</a>
-								</figcaption>           
-							</figure>
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
-						</div>
-						<div class="col-md-4 col-sm-12 col-xs-12 portfolio-item">
-							<figure class="effect-oscar">
-								<img src="{% static 'images/blog3.jpg' %}" alt="img09" class="img-responsive"/>
-								<figcaption>
-									<h2>Blog Post Long Title</h2>
-									<a href="#">View more</a>
-								</figcaption>           
-							</figure>
-							<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Lorem ipsum dolor sit amet.</p>
-							<div class="text-center"><a class="btn btn-primary btn-noborder-radius hvr-bounce-to-bottom">Read More</a></div>
-						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
@@ -249,16 +197,18 @@
 				<img class="img-responsive displayed" src="{% static 'images/short.png' %}" alt="about">
 				</div>
 				<div class="row teamspace">
+					{% for team in teams %}
 					<div class="col-xs-12 col-sm-6 col-md-3">
+
 						<div class="team-member">
 							<div class="team-img">
 								<img class="img-responsive" src="{% static 'images/person1.jpg' %}" alt="">
 							</div>
 							<div class="team-info">
-								<h3>Christian Peri</h3>
-								<span>Co-Founder</span>
+								<h3>{{ team.nom }}</h3>
+								<span>{{ team.fonction }}</span>
 							</div>
-							<p>Backed by some of the biggest names in the industry, Firefox OS is an open platform that fosters greater</p>
+							<p>{{ team.description }}</p>
 							<ul class="social-icons">
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -267,102 +217,28 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-6 col-md-3">
-						<div class="team-member">
-							<div class="team-img">
-								<img class="img-responsive" src="{% static 'images/person1.jpg' %}" alt="">
-							</div>
-							<div class="team-info">
-								<h3>Jane Manz</h3>
-								<span>Project Manager</span>
-							</div>
-							<p>Backed by some of the biggest names in the industry, Firefox OS is an open platform that fosters greater</p>
-							<ul class="social-icons">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-3">
-						<div class="team-member">
-							<div class="team-img">
-								<img class="img-responsive" src="{% static 'images/person1.jpg' %}" alt="">
-							</div>
-							<div class="team-info">
-								<h3>Paulinho Rubos</h3>
-								<span>Designer</span>
-							</div>
-							<p>Backed by some of the biggest names in the industry, Firefox OS is an open platform that fosters greater</p>
-							<ul class="social-icons">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-6 col-md-3">
-						<div class="team-member">
-							<div class="team-img">
-								<img class="img-responsive" src="{% static 'images/person1.jpg' %}" alt="">
-							</div>
-							<div class="team-info">
-								<h3>Loreto Andas</h3>
-								<span>Developer</span>
-							</div>
-							<p>Backed by some of the biggest names in the industry, Firefox OS is an open platform that fosters greater</p>
-							<ul class="social-icons">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							</ul>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</section>
 
 
 		<section id="portfolio1">
-		<div class="container">
-		<div class="row">
-			<div class="text-center">
+	<div class="container">
+		<div class="text-center">
 			<h2>Portfolio</h2>
 			<img class="img-responsive displayed" src="{% static 'images/short.png' %}" alt="about">
-			</div>
-
-			<ul class="filter nav nav-pills">
-			  <li data-value="all" ><a class="active" href="#">All</a></li>
-			  <li data-value="development"><a href="#">Development</a></li>
-			  <li data-value="webdesign"><a href="#">Web Design</a></li>
-			  <li data-value="mobileapps"><a href="#">Mobile Apps</a></li>
-			</ul>
- 
-			<ul class="port2">
-			  <li data-type="development" data-id="id-1" class="port3">
-				<a href="#" id="development1"><img src="{% static 'images/port1.jpg' %}" alt=""></a></li>
-			  <li data-type="webdesign" data-id="id-2" class="port3">
-				<a href="#" id="webdesign1"><img src="{% static 'images/port2.jpg' %}" alt=""></a>
-			  </li>
-			  <li data-type="mobileapps" data-id="id-3" class="port3">
-				<a href="#" id="mobileapps1"><img src="{% static 'images/port3.jpg' %}" alt=""></a>
-			  </li>
-				<li data-type="development" data-id="id-4" class="port3">
-				<a href="#" id="development2"><img src="{% static 'images/port4.jpg' %}" alt=""></a>
-			  </li>
-			  <li data-type="webdesign" data-id="id-5" class="port3">
-				<a href="#" id="webdesign2"><img src="{% static 'images/port5.jpg' %}" alt=""></a>
-			  </li>
-			  <li data-type="mobileapps" data-id="id-6" class="port3">
-				<a href="#" id="mobileapps2"><img src="{% static 'images/port6.jpg' %}" alt=""></a>
-			  </li>
-			</ul>
-		  </div> 
 		</div>
-		</section>
+		<ul class="port2" style="display: flex; justify-content: center;">
+			{% for portfolio in portfolios %}
+			<li data-type="webdesign" data-id="id-1" class="port3" style="list-style-type: none; margin: 0 10px;">
+				<a href="#" id="webdesign1"><img src="{{portfolio.images}}" alt=""></a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+
 
 		<div id="location">
 			<div class="row prodmap">
@@ -418,24 +294,26 @@
 						</div>
 						<div class="col-lg-5 col-md-3 col-lg-offset-1 col-md-offset-1">
 							<div class="row">
+								{% for localisation in localisations %}
 								<div class="col-md-12 height-contact-element">
 									<div class="form-group">
 										<i class="fa fa-2x fa-map-marker"></i>
-										<span class="text">LOCATION</span>
+										<span class="text">{{ localisation.localisation }}</span>
 									</div>
 								</div>
 								<div class="col-md-12 height-contact-element">
 									<div class="form-group">
 										<i class="fa fa-2x fa-phone"></i>
-										<span class="text">0051 768622115</span>
+										<span class="text">{{ localisation.number }}</span>
 									 </div>
 								 </div>
 								<div class="col-md-12 height-contact-element">    
 									<div class="form-group">
 										<i class="fa fa-2x fa-envelope"></i>
-										<span class="text">info@company.com</span>
+										<span class="text">{{ localisation.mail }}</span>
 									</div>
 								</div>
+								{% endfor %}
 							</div>
 						</div>
 					</div>
