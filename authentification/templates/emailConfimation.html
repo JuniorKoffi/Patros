@@ -1,0 +1,16 @@
+{% autoescape off %}
+
+Welcome to Tale login
+
+Hello {{ name }},
+ Please confirm your email by clicking on the link below.
+Confirm link:
+
+    {{ protocol }}://{{domain}}{% url 'authentification:activate' uidb64=uid token=token %}
+
+If clicking the link above doesn't work, please copy and paste the URL in a new browser
+window instead.
+
+        Sincerely,
+            TALE
+{% endautoescape %}

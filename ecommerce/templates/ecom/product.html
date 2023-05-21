@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>Tale SEO Agency - Formations Page</title>
+	<title>Sora</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="The Plaza eCommerce Template">
 	<meta name="keywords" content="plaza, eCommerce, creative, html">
@@ -25,10 +25,10 @@
 	<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/templatemo-tale-seo-agency.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets1/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets1/css/templatemo-tale-seo-agency.css' %}">
+    <link rel="stylesheet" href="{% static 'assets1/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets1/css/animate.css' %}">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -57,21 +57,19 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="{% url 'app:index' %}" class="logo">
-                        <img src="{% static 'assets/images/logo.png' %}" alt="" style="max-width: 112px;">
+                    <a href="{% url 'Accueil' %}" class="logo">
+                        <img src="{% static 'images/logo.png' %}" alt="" style="max-width: 112px;">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="{% url 'app:index' %}#top">Home</a></li>
-                      <li><a href="{% url 'app:index' %}#services">Services</a></li>
-                      <li><a href="{% url 'app:index' %}#projects">Projects</a></li>
+                      <li><a href="{% url 'Accueil' %}#top">Home</a></li>
+                      <li><a href="{% url 'Accueil' %}#services">Services</a></li>
                       <li class="has-sub">
                           <a href="javascript:void(0)">Pages</a>
                           <ul class="sub-menu">
-                              <li><a href="{% url 'app:about' %}">About Us</a></li>
-                              <li><a href="{% url 'app:faqs' %}">FAQs</a></li>
-                              <li><a href="{% url 'blog:blog' %}">Blog</a></li>
+                              <li><a href="{% url 'Accueil' %}">About Us</a></li>
+                              <li><a href="{% url 'blog' %}">Blog</a></li>
                               <li><a href="{% url 'ecommerce:indexz' %}">Formations</a></li>
                           </ul>
                       </li>
@@ -175,10 +173,10 @@
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 
-  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
-  <script src="{% static 'assets/js/owl-carousel.j' %}s"></script>
-  <script src="{% static 'assets/js/tabs.js' %}"></script>
-  <script src="{% static 'assets/js/popup.js' %}"></script>
-  <script src="{% static 'assets/js/custom.js' %}"></script>
+  <script src="{% static 'assets1/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets1/js/owl-carousel.j' %}s"></script>
+  <script src="{% static 'assets1/js/tabs.js' %}"></script>
+  <script src="{% static 'assets1/js/popup.js' %}"></script>
+  <script src="{% static 'assets1/js/custom.js' %}"></script>
     </body>
 </html>

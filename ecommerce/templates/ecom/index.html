@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>Tale SEO Agency - Formations Page</title>
+	<title>Sora</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="The Plaza eCommerce Template">
 	<meta name="keywords" content="plaza, eCommerce, creative, html">
@@ -54,19 +54,17 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="{% url 'Accueil' %}" class="logo">
-                        <img src="{% static 'assets1/images/logo.png' %}" alt="" style="max-width: 112px;">
+                        <img src="{% static 'images/logo.png' %}" alt="" style="max-width: 112px;">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                       <li><a href="{% url 'Accueil' %}#top">Home</a></li>
                       <li><a href="{% url 'Accueil' %}#services">Services</a></li>
-                      <li><a href="{% url 'Accueil' %}#projects">Projects</a></li>
                       <li class="has-sub">
                           <a href="javascript:void(0)">Pages</a>
                           <ul class="sub-menu">
                               <li><a href="{% url 'Accueil' %}">About Us</a></li>
-                              <li><a href="{% url 'Accueil' %}">FAQs</a></li>
                               <li><a href="{% url 'blog' %}">Blog</a></li>
                               <li><a href="{% url 'ecommerce:indexz' %}">Formations</a></li>
                           </ul>
@@ -78,14 +76,14 @@
                           <a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a>
                           <ul class="sub-menu">
                             <p>{{ user.username }}</p>
-                            <li><a href="#">Logout</a></li>
-                            <li><a href="#">Modify password</a></li>
+                            <li><a href="{% url 'authentification:signout' %}">Logout</a></li>
+                            <li><a href="{% url 'authentification:password_reset' %}">Modify password</a></li>
                           </ul>
                         {% else %}
                             <a href="javascript:void(0)"><i class="fa fa-user-times" aria-hidden="true"></i></a>
                             <ul class="sub-menu">
-                              <li><a href="#">Login</a></li>
-                              <li><a href="#">Sign up </a></li>
+                              <li><a href="{% url 'authentification:signin' %}">Login</a></li>
+                              <li><a href="{% url 'authentification:signup' %}">Sign up </a></li>
                             </ul>
                         {% endif %}
                       </li>
@@ -128,7 +126,7 @@
 <!--			</div>-->
 <!--		</div>-->
 		<div>
-			<img src="{% static 'zifty/img/pexels-christina-morillo-1181329.jpg' %}" alt="">
+			<img src="{% static 'zifty/img/112131.jpg' %}" alt="">
 		</div>
 	</section>
 	<!-- Hero section end -->
@@ -198,11 +196,11 @@
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
 
-  <script src="{% static 'assets1/js/isotope.min.js' %}"></script>
-  <script src="{% static 'assets1/js/owl-carousel.j' %}s"></script>
-  <script src="{% static 'assets1/js/tabs.js' %}"></script>
-  <script src="{% static 'assets1/js/popup.js' %}"></script>
-  <script src="{% static 'assets1/js/custom.js' %}"></script>
+  <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'assets/js/owl-carousel.j' %}s"></script>
+  <script src="{% static 'assets/js/tabs.js' %}"></script>
+  <script src="{% static 'assets/js/popup.js' %}"></script>
+  <script src="{% static 'assets/js/custom.js' %}"></script>
 
 
 
